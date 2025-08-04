@@ -5,15 +5,6 @@
 
 function addUpTo(n) {
     // значение O для функции: 
-    // O(1)
-    return n * (n + 1) / 2;
-}
-
-console.log(addUpTo(6))
-
-
-function addUpTo(n) {
-    // значение O для функции: 
     // O(n)
     let total = 0;
     for (let i = 0; i <= n; i++) {
@@ -23,6 +14,16 @@ function addUpTo(n) {
 }
 
 console.log(addUpTo(6))
+
+
+function addUpTo(n) {
+    // значение O для функции: 
+    // O(1)
+    return n * (n + 1) / 2;
+}
+
+console.log(addUpTo(6))
+
 
 function printAllPairs(n) {
     // значение O для функции: 
