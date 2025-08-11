@@ -38,6 +38,7 @@ function same(arr1, arr2) {
     }
     console.log(frequencyCounter1);
     console.log(frequencyCounter2);
+
     for (let key in frequencyCounter1) {
         if (!(key ** 2 in frequencyCounter2)) {
             return false
@@ -49,7 +50,7 @@ function same(arr1, arr2) {
     return true
 }
 
-// same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])
+same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11])
 
 
 
@@ -87,3 +88,45 @@ function validAnagram(first, second) {
 // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
 // validAnagram('anagrams', 'nagaramm')
 
+
+
+// Напишите функцию под названием sameFrequency. 
+// Даны два положительных целых числа, определите, 
+// имеют ли эти два числа одинаковую частоту цифр.
+
+
+function sameFrequency(num1, num2) {
+    let strNum1 = num1.toString();
+    let strNum2 = num2.toString();
+    if (strNum1.length !== strNum2.length) return false;
+
+    let countNum1 = {};
+    let countNum2 = {};
+
+    for (let i = 0; i < strNum1.length; i++) {
+        /*if (countNum1[strNum1[i]] === undefined) {
+          countNum1[strNum1[i]] = 0
+        }
+        countNum1[strNum1[i]]++;*/
+        countNum1[strNum1[i]] = (countNum1[strNum1[i]] || 0) + 1
+    }
+
+    for (let j = 0; j < strNum1.length; j++) {
+        countNum2[strNum2[j]] = (countNum2[strNum2[j]] || 0) + 1
+    }
+
+    for (let key in countNum1) {
+        if (countNum1[key] !== countNum2[key]) return false;
+    }
+
+    // for(let key in countNum2){
+    //   if(countNum1[key] !== countNum2[key]) return false;
+    // }
+    return true;
+}
+
+
+console.log(sameFrequency(182, 281)) // true
+console.log(sameFrequency(34, 14)) // false
+console.log(sameFrequency(3589578, 5879385)) // true
+console.log(sameFrequency(22, 222)) // false
