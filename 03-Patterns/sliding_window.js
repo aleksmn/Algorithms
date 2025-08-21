@@ -26,13 +26,13 @@
 
 // решение с вложенным циклом
 function maxSubarraySum(arr, num) {
-  if ( num > arr.length){
+  if (num > arr.length) {
     return null;
   }
   var max = -Infinity;
-  for (let i = 0; i < arr.length - num + 1; i ++){
+  for (let i = 0; i < arr.length - num + 1; i++) {
     temp = 0;
-    for (let j = 0; j < num; j++){
+    for (let j = 0; j < num; j++) {
       temp += arr[i + j];
     }
     if (temp > max) {
@@ -42,11 +42,11 @@ function maxSubarraySum(arr, num) {
   return max;
 }
 
-console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3],3))
+console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3))
 
 
 // рефакторинг
-function maxSubarraySum(arr, num){
+function maxSubarraySum(arr, num) {
   let maxSum = 0;
   let tempSum = 0;
   if (arr.length < num) return null;
@@ -61,4 +61,40 @@ function maxSubarraySum(arr, num){
   return maxSum;
 }
 
-console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3],3))
+console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3))
+
+
+
+
+
+// Напишите функцию под названием findLongestSubstring,
+// которая принимает строку и возвращает длину самой длинной
+// подстроки с уникальными символами.
+// Сложность по времени - O(n)
+
+// findLongestSubstring('') // 0
+// findLongestSubstring('rithmschool') // 7
+// findLongestSubstring('thisisawesome') // 6
+// findLongestSubstring('thecatinthehat') // 7
+// findLongestSubstring('bbbbbb') // 1
+// findLongestSubstring('longestsubstring') // 8
+// findLongestSubstring('thisishowwedoit') // 6
+
+
+function findLongestSubstring(str) {
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
+    }
+    // index - beginning of substring + 1 (to include current in count)
+    longest = Math.max(longest, i - start + 1);
+    // store the index of the next char so as to not double count
+    seen[char] = i + 1;
+  }
+  return longest;
+}

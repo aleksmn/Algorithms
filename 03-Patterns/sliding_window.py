@@ -32,3 +32,31 @@ def max_subarray_sum(arr, num):
     return max_sum
 
 print(max_subarray_sum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3))
+
+
+
+
+def findLongestSubstring(s):
+    longest = 0
+    seen = {}
+    start = 0
+
+    for i in range(len(s)):
+        char = s[i]
+        if char in seen:
+            start = max(start, seen[char])
+        # индекс - начало подстроки + 1 (чтобы включить текущий символ в подсчет)
+        longest = max(longest, i - start + 1)
+        # сохраняем индекс следующего символа, чтобы не считать его дважды
+        seen[char] = i + 1
+
+    return longest
+
+# Примеры использования
+print(findLongestSubstring(''))  # 0
+print(findLongestSubstring('rithmschool'))  # 7
+print(findLongestSubstring('thisisawesome'))  # 6
+print(findLongestSubstring('thecatinthehat'))  # 7
+print(findLongestSubstring('bbbbbb'))  # 1
+print(findLongestSubstring('longestsubstring'))  # 8
+print(findLongestSubstring('thisishowwedoit'))  # 6
