@@ -91,10 +91,19 @@ function findLongestSubstring(str) {
     if (seen[char]) {
       start = Math.max(start, seen[char]);
     }
-    // index - beginning of substring + 1 (to include current in count)
+    // индекс - начало подстроки + 1 (чтобы включить текущий символ в подсчет)
     longest = Math.max(longest, i - start + 1);
-    // store the index of the next char so as to not double count
+    // сохраняем индекс следующего символа, чтобы не считать его дважды
     seen[char] = i + 1;
   }
+  console.log(longest)
   return longest;
 }
+
+findLongestSubstring('') // 0
+findLongestSubstring('rithmschool') // 7
+findLongestSubstring('thisisawesome') // 6
+findLongestSubstring('thecatinthehat') // 7
+findLongestSubstring('bbbbbb') // 1
+findLongestSubstring('longestsubstring') // 8
+findLongestSubstring('thisishowwedoit') // 6
