@@ -1,5 +1,6 @@
-// Рекурсия -функция, которая вызывает саму себя
+// Рекурсия - функция, которая вызывает саму себя
 function countDown(num){
+    // условие выхода из рекурсии
     if(num <= 0) {
         console.log("Пуск!");
         return;
@@ -7,7 +8,7 @@ function countDown(num){
     console.log(num);
     num--;
     // рекурсия
-    countDown(num-1);
+    countDown(num);
 }
 
 countDown(3)
@@ -19,7 +20,18 @@ function sumRange(num){
    return num + sumRange(num-1);
 }
 
-console.log(sumRange(4))
+console.log(sumRange(7))
+
+console.log(7 + 6 + 5 + 4 + 3 + 2 + 1)
+
+
+
+
+
+
+
+
+
 
 
 function factorial(num){
@@ -68,8 +80,18 @@ function collectOddValues(arr){
         newArr.push(arr[0]);
     }
         
-    newArr = newArr.concat(collectOddValues(arr.slice(1)));
-    return newArr;
+    return newArr.concat(collectOddValues(arr.slice(1)));
 }
 
-console.log(collectOddValues([1,2,3,4,5]))
+console.log(collectOddValues([1,2,3,4,5, 8, 222, 223]))
+
+
+
+// Напишите рекурсивную функцию с именем flatten, 
+// которая принимает массив массивов и возвращает 
+// новый массив со всеми значениями в "плоском" виде (без вложенных массивов).
+
+
+// Примеры
+// flatten([1, 2, 3, [4, 5] ]))         // [1, 2, 3, 4, 5]
+// flatten([1, [2, [3, 4], [[5]]]]))    // [1, 2, 3, 4, 5]
