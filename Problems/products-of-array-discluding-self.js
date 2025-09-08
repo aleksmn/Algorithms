@@ -1,9 +1,10 @@
-// Given an integer array nums, return an array output where output[i] 
-// is the product of all the elements of nums except nums[i].
+// Даны целые числа в массиве nums. Вернуть массив output, где output[i] — произведение всех элементов nums, кроме nums[i].
+// Гарантируется, что каждое произведение помещается в 32‑битное целое.
+// Усложнение: можно ли решить за O(n) времени без использования операции деления?
 
-// Input: nums = [1,2,4,6]
-
-// Output: [48,24,12,8]
+// Пример:
+// Ввод: nums = [1, 2, 4, 6]
+// Вывод: [48, 24, 12, 8]
 
 
 
