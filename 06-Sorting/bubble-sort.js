@@ -31,8 +31,14 @@ function bubbleSort(arr) {
 }
 
 
+let arr =  [8, 1, 2, 3, 4, 5, 6, 7]
+
 
 console.time('task');
 // вызов функции или блок кода
-bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]);
+bubbleSort(arr);
+console.timeEnd('task');
+
+console.time('task');
+arr.sort((a,b) => a - b); 
 console.timeEnd('task');
