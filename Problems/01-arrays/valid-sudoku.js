@@ -21,3 +21,26 @@
 // [".",".",".",".","8",".",".","7","9"]]
 
 // Вывод: true
+
+
+function isValidSudoku(board) {
+    const rows = Array.from({ length: 9 }, () => new Set());
+    const cols = Array.from({ length: 9 }, () => new Set());
+    const boxes = Array.from({ length: 9 }, () => new Set());
+
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const val = board[i][j];
+            if (val === '.' || val === 0) continue;
+            if (val < '1' || val > '9') return false;
+            const boxIdx = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+            if (rows[i].has(val) || cols[j].has(val) || boxes[boxIdx].has(val)) {
+                return false;
+            }
+            rows[i].add(val);
+            cols[j].add(val);
+            boxes[boxIdx].add(val);
+        }
+    }
+    return true;
+}
