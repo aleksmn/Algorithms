@@ -39,6 +39,7 @@ console.time('task');
 bubbleSort(arr);
 console.timeEnd('task');
 
-console.time('task');
+console.time('task2');
 arr.sort((a,b) => a - b); 
-console.timeEnd('task');
+console.timeEnd('task2');
+
