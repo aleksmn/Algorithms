@@ -1,13 +1,14 @@
-function insertionSort(arr) {
-    let currentVal;
-    for (let i = 1; i < arr.length; i++) {
+function insertionSort(arr){
+	var currentVal;
+    for(var i = 1; i < arr.length; i++){
         currentVal = arr[i];
-        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-            arr[j + 1] = arr[j]
+        for(var k = i - 1; k >= 0 && arr[k] > currentVal; k--) {
+            arr[k+1] = arr[k]
         }
-        arr[j + 1] = currentVal;
+        arr[k+1] = currentVal;
     }
     return arr;
 }
+
 
 console.log(insertionSort([2, 1, 9, 76, 4]))
