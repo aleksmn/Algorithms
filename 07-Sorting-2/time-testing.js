@@ -1,3 +1,21 @@
+function bubbleSort(arr) {
+    let noSwaps;
+    for (let i = arr.length; i > 0; i--) {
+        noSwaps = true;
+        for (let j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                noSwaps = false;
+            }
+        }
+        if (noSwaps) break;
+    }
+    return arr;
+}
+
+
 function merge(arr1, arr2) {
     let results = [];
     let i = 0;
@@ -32,4 +50,9 @@ function mergeSort(arr) {
     return merge(left, right);
 }
 
-console.log(mergeSort([10, 24, 76, 73]))
+
+let data = Array.apply(null, {length: 100000}).map(Function.call, Math.random)
+
+
+// console.log(bubbleSort(data))
+console.log(mergeSort(data))
