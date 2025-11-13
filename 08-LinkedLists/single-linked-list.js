@@ -54,6 +54,8 @@ class SinglyLinkedList {
 
     // shift - удаляем первое значение
     // unshift - добавляем значение в начало списка
+    // get - получаем по индексу
+    // set(index, value) - поменять значение по индексу
     // remove(index) - удаляем по индексу
     // insert(index, val) - вставка 
 
