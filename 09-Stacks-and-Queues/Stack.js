@@ -1,19 +1,19 @@
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
 }
 
 class Stack {
-    constructor(){
+    constructor() {
         this.first = null;
         this.last = null;
         this.size = 0;
     }
-    push(val){
+    push(val) {
         var newNode = new Node(val);
-        if(!this.first){
+        if (!this.first) {
             this.first = newNode;
             this.last = newNode;
         } else {
@@ -23,10 +23,10 @@ class Stack {
         }
         return ++this.size;
     }
-    pop(){
-        if(!this.first) return null;
+    pop() {
+        if (!this.first) return null;
         var temp = this.first;
-        if(this.first === this.last){
+        if (this.first === this.last) {
             this.last = null;
         }
         this.first = this.first.next;
@@ -34,3 +34,11 @@ class Stack {
         return temp.value;
     }
 }
+
+
+let stack = new Stack();
+console.log(stack.push(11))
+console.log(stack.push(22))
+console.log(stack.push(33))
+
+console.log(stack);
