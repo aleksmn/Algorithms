@@ -25,12 +25,12 @@ class BinarySearchTree {
         this.root = null;
     }
     insert(value) {
-        var newNode = new Node(value);
+        let newNode = new Node(value);
         if (this.root === null) {
             this.root = newNode;
             return this;
         }
-        var current = this.root;
+        let current = this.root;
         while (true) {
             if (value === current.value) return undefined;
             if (value < current.value) {
