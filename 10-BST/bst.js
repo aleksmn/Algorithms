@@ -1,5 +1,5 @@
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.left = null;
         this.right = null;
@@ -21,29 +21,29 @@ class Node {
 //       3  8        20
 
 class BinarySearchTree {
-    constructor(){
+    constructor() {
         this.root = null;
     }
-    insert(value){
+    insert(value) {
         var newNode = new Node(value);
-        if(this.root === null){
+        if (this.root === null) {
             this.root = newNode;
             return this;
         }
         var current = this.root;
-        while(true){
-            if(value === current.value) return undefined;
-            if(value < current.value){
-                if(current.left === null){
+        while (true) {
+            if (value === current.value) return undefined;
+            if (value < current.value) {
+                if (current.left === null) {
                     current.left = newNode;
                     return this;
                 }
                 current = current.left;
             } else {
-                if(current.right === null){
+                if (current.right === null) {
                     current.right = newNode;
                     return this;
-                } 
+                }
                 current = current.right;
             }
         }
@@ -55,7 +55,7 @@ class BinarySearchTree {
 //   5     13
 // 2  7  11  16
 
-var tree = new BinarySearchTree();
+let tree = new BinarySearchTree();
 tree.insert(10)
 tree.insert(5)
 tree.insert(13)
@@ -63,3 +63,26 @@ tree.insert(11)
 tree.insert(2)
 tree.insert(16)
 tree.insert(7)
+
+console.log(tree.root)
+
+
+
+// Problem 1
+// Invert Tree
+
+// function invertTree(root) {
+//     if (!root) return null;
+//     const stack = [root];
+//     while (stack.length) {
+//         const node = stack.pop();
+//         [node.left, node.right] = [node.right, node.left];
+//         if (node.left) stack.push(node.left);
+//         if (node.right) stack.push(node.right);
+//     }
+//     return root;
+// }
+
+
+// let invertedTree = invertTree(tree.root);
+// console.log(invertedTree)
